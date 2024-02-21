@@ -19,8 +19,6 @@ launch-templates:
         script: |
           git config --global user.email test@test.com
           git config --global user.name "Test Test"
-      - name: Setting env # Redefine PATH for further steps
-        script: echo "PATH=$HOME/my-folder:$PATH" >> $NX_CLOUD_ENV
       - name: Print path
         script: echo $PATH # will include my-folder
       - name: Define env var for a step
