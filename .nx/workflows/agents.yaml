@@ -15,17 +15,6 @@ launch-templates:
           BASE_BRANCH: 'main'
       - name: Install Node Modules
         uses: 'nrwl/nx-cloud-workflows/v1.1/workflow-steps/install-node-modules/main.yaml'
-      - name: Run a custom script
-        script: |
-          git config --global user.email test@test.com
-          git config --global user.name "Test Test"
-      - name: Setting env # Redefine PATH for further steps
-        script: echo "PATH=$HOME/my-folder:$PATH" >> $NX_CLOUD_ENV
-      - name: Print path
-        script: echo $PATH # will include my-folder
-      - name: Define env var for a step
-        env: MY_ENV_VAR=for-step
-        script: echo $MY_ENV_VAR # will print for-step
       - name: Checkout
         uses: 'nrwl/nx-cloud-workflows/v3.1/workflow-steps/checkout/main.yaml'
       - name: Restore Node Modules Cache
